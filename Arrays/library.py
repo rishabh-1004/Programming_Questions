@@ -67,3 +67,5 @@ def rearrange_alternate_array(arr):
             c.append(min(arr))
             arr.remove(min(arr))
     return(c)
+
+
