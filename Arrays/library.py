@@ -1,5 +1,8 @@
 import math 
 
+# MaxSubsetSum - 
+#   Input - Array of Numbers
+#   Result- maximum sum of continuous elements in array
 def maxSubsetSum(A):
     max_start, max_stop = 0, 1 
     curr = 0                  
@@ -19,6 +22,9 @@ def maxSubsetSum(A):
 
     return  max_sum
 
+# Merge two Sorted Arrays
+#   Input - Two Sorted Arrays
+#   Output- One Sorted Array containing elements from both input arrays
 def merge_sorted_array(a,b):
     i=0
     j=0
@@ -38,9 +44,15 @@ def merge_sorted_array(a,b):
         j+=1
     return(c)
 
+#Missing Element in an Array
+#   Input - Array with continuous elements of numbers with one missing number , and size
+#   Output - Missing element from the array
 def missing_element_in_array(arr, n):
     return int((n*(n+1))/2 - sum(arr))
 
+#Sub-Array Sum
+#   Input - Size of Array, Sum to be found, Array 
+#   Output - 1 if found, -1 if not found 
 def SubArraySum(size,final,array):
         first=0
         total=0
@@ -56,7 +68,9 @@ def SubArraySum(size,final,array):
                 total=total+array[i]
         print(-1)
 
-
+#Rearrange array alternately
+#Input - Array of numbers
+#Output- Array in the format containing higesht number then lowest number and so on.
 def rearrange_alternate_array(arr):
     c=[]
     for i in range(0,len(arr)):
@@ -68,7 +82,9 @@ def rearrange_alternate_array(arr):
             arr.remove(min(arr))
     return(c)
 
-
+#Merge Sort
+#Input - Array of Numbers
+#Output- Sorted Array 
 def merge_sort(A):
     n=len(A)
     if n == 1 :
@@ -94,3 +110,22 @@ def merge(L,R):
     if (j<len(R)):
         answer.extend(R[j:])
     return answer
+
+#Equilibrium- Equilibrium position in an array is a position such that the sum of elements before it is equal to the sum of elements after it.
+#Input - Array of Numbers
+#Output- Pointer value or -1 if not found
+def equilibrium(array):
+    left=0
+    right=sum(array)
+    pointer=1
+    for i in range(0,len(array)):
+        if(i==0):
+            left=left
+        else:
+            left=left+array[i-1]
+        right=right-array[i]
+        if(left==right):
+            return pointer
+        pointer+=1
+        if(right<left):
+            return(-1)
