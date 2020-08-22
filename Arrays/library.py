@@ -129,3 +129,23 @@ def equilibrium(array):
         pointer+=1
         if(right<left):
             return(-1)
+
+
+def minimum_platform(A,D):
+    i=0
+    j=0
+    array3=[]
+    values=[]
+    platform=0
+    while(i<len(A) and j<len(D)):
+        if (A[i]<D[j]):
+            array3.append(A[i])
+            platform+=1
+            values.append(platform)
+            i+=1
+        elif(A[i]>D[j]):
+            array3.append(D[j])
+            platform-=1
+            values.append(platform)
+            j+=1
+    return max(values)
